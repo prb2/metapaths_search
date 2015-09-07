@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <script type="text/javascript" src="searchpage.js"></script>
+    </head>
+    <body>
+        <div class="container col-lg-6 col-lg-offset-3">
+            <div class="navbar navbar-inverse navbar-top title">
+                Metabolic Pathfinding Using Atom Tracking
+            </div>
+            <br>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="start-compound" class="col-sm-5 control-label">Start Compound ID</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control input-sm" id="start-compound" placeholder="C00031">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="goal-compound" class="col-sm-5 control-label">Goal Compound ID</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control input-sm" id="goal-compound" placeholder="C00078">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="carbon-tracking" class="col-sm-5 control-label">Carbon Tracking</label>
+                    <div class="col-sm-5">
+                        <label class="radio-inline">
+                            <input onclick="hideCarbonsField()" type="radio" name="carbon-tracking" id="max-carbons" value="max-carbons" checked>Max Carbons</input>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="showCarbonsField()" type="radio" name="carbon-tracking" id="specify-carbons" value="specify-carbons">Specify Carbons</input>
+                        </label>
+                        <input type="number" name="carbon-tracking" id="specified-carbons" class="form-control input-sm" value=1></input>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="algorithm" class="col-sm-5 control-label">Algorithm</label>
+                    <div class="col-sm-5">
+                        <select onchange="detectAlgorithm()" class="form-control input-sm" id="algorithm">
+                            <option value="lpat">LPAT</option>
+                            <option value="bpat-s">BPAT-S</option>
+                            <option value="bpat-m">LPAT-M</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="bpat-only">
+                    <label for="num-starting-compunds" class="col-sm-5 control-label">Number of Starting Compounds (Max of 10)</label>
+                    <div class="col-sm-5">
+                        <input type="number" id="num-starting-compounds" class="form-control input-sm" value=1></input>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clustering-algorithm" class="col-sm-5 control-label">Clustering Algorithm</label>
+                    <div class="col-sm-5">
+                        <select class="form-control input-sm" id="clustering-algorithm">
+                            <option value="hierarchical">Hierarchical</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clustering-distance-measure" class="col-sm-5 control-label">Clustering Distance Measure</label>
+                    <div class="col-sm-5">
+                        <select class="form-control input-sm" id="clustering-distance-measure">
+                            <option value="edit-distance">Edit Distance</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <button class="btn btn-default" onClick="submit('asdasdfafsd')">Find Paths</button>
+        </div>
+    </body>
+</html>
