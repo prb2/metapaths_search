@@ -19,15 +19,19 @@ function submit() {
     for (var i = 0; i < fields.length; i++) {
         var field = fields[i];
         if (field.value == "" || field.value == null) {
+            console.log(field.parentElement.classList);
             field.parentElement.classList.add("has-error");
             valid = false;
         } else {
             data[field.id] = field.value;
+            field.parentElement.classList.remove("has-error");
         }
     }
     if (valid == true) {
         console.log(data);
-        document.getElementsByClassName("container")[0].innerHTML += "<br><br>" + JSON.stringify(data);
+        data["max-carbons"] = document.getElementById("max-carbons").checked;
+        alert(JSON.stringify(data))
+        // document.getElementsByClassName("container")[0].innerHTML += "<br><br>" + JSON.stringify(data);
     } else {
         alert("Please correct the fields marked in red.")
     }
